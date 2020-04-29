@@ -6,13 +6,13 @@ The adversarial loss contains a generator and discriminator (netG and netD).
 
 1. The `netD` is trained on the real images (target img) based on the loss between the output and the real label. (The loss is called `errD_real`)
 
-2. Then the netG model takes in the real input (RFs) and gives an output (outputG1).
+2. Then the `netG` model takes in the real input (RFs) and gives an output (`outputG1`).
 
-3. This outputG1 that came out of the generator is passed through the discriminator, and netD learns that this is the "fake" img. 
+3. This outputG1 that came out of the `netG` is passed through the `netD`, and netD learns that this is the "fake" img. 
 
 4. A second loss is calculated between this netD output and the fake_label. (errD_fake)  
 
-5. The errD_real and errD_fake are added together to become errD, and backpropagation is performed on errD.
+5. The `errD_real` and `errD_fake` are added together to become errD, and backpropagation is performed on errD.
 
 6. The Generator takes the input again, and gives some output (outputG2).
 
@@ -33,6 +33,7 @@ The second part contains the training of the generator. This is done by changing
 
 
 
-withoutNoise: Original amount of channels (191 fior selectrode)
+<b>withoutNoise</b>: Original amount of channels (191 for separation per electrode, 2 for seperation of brain region V1 and V4)
 
-withNoise: With an extra channel containing noise images.
+<b>withNoise</b>: With an extra channel containing noise images (192 for separation per electrode, 3 for seperation of brain region V1 and V4).
+
