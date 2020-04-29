@@ -1,13 +1,12 @@
 # RF_GANsynth
 
-RG_GAN model has the same objective as the RFmasked, however makes use of an adversarial loss.
+RF_GAN model has the same objective as the RFmasked, however makes use of an adversarial loss.
 
 The adversarial loss contains a generator and discriminator (netG and netD). 
 
-TRAINING DISCRIMINATOR:
-1. The netD is trained on the real images (target img) based on the loss between the output and the real label. (errD_real)
+1. The `netD` is trained on the real images (target img) based on the loss between the output and the real label. (The loss is called `errD_real`)
 
-2. Then the Generator model takes in the real input (RFs) and gives an output (outputG1).
+2. Then the netG model takes in the real input (RFs) and gives an output (outputG1).
 
 3. This outputG1 that came out of the generator is passed through the discriminator, and netD learns that this is the "fake" img. 
 
@@ -15,7 +14,6 @@ TRAINING DISCRIMINATOR:
 
 5. The errD_real and errD_fake are added together to become errD, and backpropagation is performed on errD.
 
-TRAINING GENERATOR:
 6. The Generator takes the input again, and gives some output (outputG2).
 
 7. This outputG2 that came out of the generator is passed through the discriminator, and netD learns this time that this is the "real" img. 
